@@ -1,4 +1,8 @@
 # Stride-and-Slice-Images
+
+This blog will explain the code and equations mentioned in the code. Give it a read before going ahead.
+Blog - https://codeitplease.wordpress.com/2018/02/26/striding-and-slicing-images/
+
 Slice an image into smaller images (overlapping or non-overlapping). This is a custom built script without the use of any predefined function. The algorithm that will help an image analysis enthusiast to understand how striding, padding and convolution works.
 
 The script contains a 'transform' function that takes 'source_dir', 'size', 'strides', 'PADDING' as variables and then returns a dictionary with key - string of count starting from 1 e.g '1','2' and value - list of np.ndarray types of output images e.g. [np.ndarray(size),]
