@@ -20,12 +20,10 @@ The module contains ImageSlicer class, which contains a 'transform' method. This
 While initialising the class object, you have to provide 'source' and 'size' parameters. Other parameters, viz. 'strides', 'PADDING' and 'BATCH' are optional. After initialising the object, call the 'transform' function. Now use the 'save_images' function to save the object returned by the 'transform' function.
 
 <b>Run this Code</b><br>
-<code>
-import ImageSclicer as im</code>
-<code>from str import ImageSlicer</code>
-<code>slicer = ImageSlicer('xyz.jpg', (50,50)) #Provide image path and slice size you desire</code>
-<code>transformed_image = slicer.transform()</code>
-<code>slicer.save_images('/Folder', transformed_image) #Provide the directory where you want to save the sliced images</code>
+<code>from str import ImageSlicer</code><br>
+<code>slicer = ImageSlicer('xyz.jpg', (50,50)) <b>#Provide image path and slice size you desire</b></code><br>
+<code>transformed_image = slicer.transform()</code><br>
+<code>slicer.save_images('/Folder', transformed_image) <b>#Provide the directory where you want to save the sliced images</b></code>
 
 ## transform:
 <br><b>Parameters</b><br>
