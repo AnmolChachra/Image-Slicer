@@ -21,15 +21,14 @@ While initialising the class object, you have to provide 'source' and 'size' par
 
 <b>Run this Code</b><br>
 <code>
-import ImageSclicer as im<br>
-from str import ImageSlicer<br>
-slicer = ImageSlicer('xyz.jpg', (50,50)) #Provide image path and slice size you desire<br>
-transformed_image = slicer.transform()<br>
-slicer.save_images('/Folder', transformed_image) #Provide the directory where you want to save the sliced images
-</code>
+import ImageSclicer as im</code>
+<code>from str import ImageSlicer</code>
+<code>slicer = ImageSlicer('xyz.jpg', (50,50)) #Provide image path and slice size you desire</code>
+<code>transformed_image = slicer.transform()</code>
+<code>slicer.save_images('/Folder', transformed_image) #Provide the directory where you want to save the sliced images</code>
 
 ## transform:
-Parameters -->
+<br><b>Parameters</b><br>
 
 'source' - Can be a directory path to a single image (default) or a directory path to a directory containg multiple images.<br>
 
@@ -41,12 +40,12 @@ Parameters -->
 
 'PADDING' - (default False) If set True, will calculate appropriate padding that will give you complete images with respect to the given strides.<br>
 
-Returns --><br>
+<b>Returns</b><br>
 
 Returns a dictionary with key - string of count starting from 1 e.g '1','2' and value - list of np.ndarray types of output images.
 
 ## save:
 
-About --><br>
+<br><b>About</b><br>
 
 To save the output images in a file, the script also provides a 'save_images' method that will take the result of 'transform' method and 'source_dir' as input, and save all the images according to their respective main images with respective serial number as folder name.
