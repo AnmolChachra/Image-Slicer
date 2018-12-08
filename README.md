@@ -1,15 +1,15 @@
 # Image Slicer (from scratch)
 
-This blog will explain the code and equations mentioned in the code. Give it a read before going ahead.
+This blog will explain the code and equations mentioned in the code. Give it a read before going ahead.<br>
 Blog - https://codeitplease.wordpress.com/2018/02/26/striding-and-slicing-images/
 
 Slice an image (padded or unpadded) into smaller images (overlapping or non-overlapping). This is a custom built script without the use of any wrapper modules (other than numpy). 
 
 ## Use Case:
 
-1. Biomedical Images are High Definition. They can be sliced into smaller images, which may contain informative data. This also increases the training data for Machine Learning Algorithms. (Please visit the Blog for more details)
+<li> Biomedical Images are High Definition. They can be sliced into smaller images, which may contain informative data. This also increases the training data for Machine Learning Algorithms. (Please visit the Blog for more details)<br>
 
-2. Going through Image Slicer code and the associated Blog post, image analysis enthusiast can understand the working behind striding, padding and convolution operations.
+<li> Going through Image Slicer code and the associated Blog post, image analysis enthusiast can understand the working behind striding, padding and convolution operations.
 
 ## About the Module
 
@@ -20,33 +20,31 @@ The module contains ImageSlicer class, which contains a 'transform' method. This
 While initialising the class object, you have to provide 'source' and 'size' parameters. Other parameters, viz. 'strides', 'PADDING' and 'BATCH' are optional. After initialising the object, call the 'transform' function. Now use the 'save_images' function to save the object returned by the 'transform' function.
 
 <b>Run this Code</b>
-import ImageSclicer as im
-from str import ImageSlicer
-slicer = ImageSlicer('xyz.jpg', (50,50)) #Provide image path and slice size you desire
-transformed_image = slicer.transform()
+import ImageSclicer as im<br>
+from str import ImageSlicer<br>
+slicer = ImageSlicer('xyz.jpg', (50,50)) #Provide image path and slice size you desire<br>
+transformed_image = slicer.transform()<br>
 slicer.save_images('/Folder', transformed_image) #Provide the directory where you want to save the sliced images
 
 ## transform:
 Parameters -->
 
-'source' - Can be a directory path to a single image (default) or a directory path to a directory containg multiple images.
+'source' - Can be a directory path to a single image (default) or a directory path to a directory containg multiple images.<br>
 
-'size' - tuple of desired height and width e.g. (100,100)
+'size' - tuple of desired height and width e.g. (100,100)<br>
 
-'strides' - tuple of desired stride along height and stride along width, e.g. (100,100)
+'strides' - tuple of desired stride along height and stride along width, e.g. (100,100)<br>
 
-'BATCH' - (default False) If source is a directory of images, then BATCH = True, else BATCH = False
+'BATCH' - (default False) If source is a directory of images, then BATCH = True, else BATCH = False<br>
 
-'PADDING' - (default False) If set True, will calculate appropriate padding that will give you complete images with respect to the given strides.
+'PADDING' - (default False) If set True, will calculate appropriate padding that will give you complete images with respect to the given strides.<br>
 
-Returns -->
+Returns --><br>
 
 Returns a dictionary with key - string of count starting from 1 e.g '1','2' and value - list of np.ndarray types of output images.
 
 ## save:
 
-About -->
+About --><br>
 
 To save the output images in a file, the script also provides a 'save_images' method that will take the result of 'transform' method and 'source_dir' as input, and save all the images according to their respective main images with respective serial number as folder name.
-
- 
