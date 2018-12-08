@@ -34,16 +34,13 @@ class ImageSlicer(object):
             padding_y = 0
         Padded_Image = np.zeros(shape=(Image.shape[0]+padding_x, Image.shape[1]+padding_y, Image.shape[2]),dtype=Image.dtype)
         Padded_Image[padding_x//2:(padding_x//2)+(Image.shape[0]),padding_y//2:(padding_y//2)+Image.shape[1],:] = Image    
-        print(Padded_Image.shape)
         return Padded_Image
 
     def __convolution_op(self, Image):
         start_x = 0
         start_y = 0
-        end_x = Image.shape[0]
-        end_y = Image.shape[1]
-        n_rows = end_x//self.strides[0] + 1
-        n_columns = end_y//self.strides[1] + 1
+        n_rows = Image.shape[0]//self.strides[0] + 1
+        n_columns = Image.shape[1]//self.strides[1] + 1
         small_images = []
         for i in range(n_rows-1):
             for j in range(n_columns-1):
@@ -119,10 +116,19 @@ class ImageSlicer(object):
                     self.strides[1] = self.size[1]
 
                 elif self.strides[0]==None and self.strides[1]!=None:
+                    if self.strides[1] > Images.shape[2]:
+                        raise Exception("stride_y must be between {0} and {1}".format(1,Images.shape[2]))                 
                     self.strides[0] = self.size[0]
 
                 elif self.strides[0]!=None and self.strides[1]==None:
+                    if self.strides[0] > Images.shape[1]:
+                        raise Exception("stride_x must be between {0} and {1}".format(1,Images.shape[1]))              
                     self.strides[1] = self.size[1]
+                else:
+                    if self.strides[0] > Images.shape[1]:
+                        raise Exception("stride_x must be between {0} and {1}".format(1,Images.shape[1]))                    
+                    elif self.strides[1] > Images.shape[2]:
+                        raise Exception("stride_y must be between {0} and {1}".format(1,Images.shape[2]))
                                          
                 for i, Image in enumerate(Images):
                     transformed_images[str(i)] = self.__convolution_op(Image)
